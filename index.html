@@ -1,0 +1,459 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>YOUR TRAVEL AGENT S.R.L. - Flight Consolidator</title>
+  <meta name="description" content="Консолидатор по продаже авиабилетов в Молдове с 2019 года." />
+  <style>
+    :root {
+      --bg-dark: #06111f;
+      --bg-mid: #0d2240;
+      --text-dark: #152b49;
+      --text-muted: #5f7087;
+      --line: #d6e1ee;
+      --card: rgba(255,255,255,0.94);
+      --accent: #f3732b;
+      --accent-dark: #163a72;
+      --white: #ffffff;
+      --shadow: 0 24px 70px rgba(11, 27, 49, 0.18);
+      --radius-xl: 28px;
+      --radius-lg: 18px;
+      --maxw: 1320px;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      font-family: Arial, Helvetica, sans-serif;
+      color: var(--text-dark);
+      background: linear-gradient(180deg, #edf3fa 0%, #f7fbff 100%);
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    img {
+      display: block;
+      max-width: 100%;
+    }
+
+    .wrap {
+      width: min(calc(100% - 28px), var(--maxw));
+      margin: 14px auto 0;
+    }
+
+    .hero {
+      position: relative;
+      min-height: 800px;
+      border-radius: var(--radius-xl);
+      overflow: hidden;
+      box-shadow: var(--shadow);
+      background:
+        linear-gradient(180deg, rgba(6,17,31,0.08) 0%, rgba(6,17,31,0.18) 28%, rgba(6,17,31,0.48) 100%),
+        linear-gradient(90deg, rgba(6,17,31,0.56) 0%, rgba(6,17,31,0.22) 48%, rgba(6,17,31,0.08) 100%),
+        url('hero-bg.jpg') center center / cover no-repeat,
+        linear-gradient(135deg, #103056 0%, #274f84 45%, #ea8f56 100%);
+    }
+
+    .hero > * {
+      position: relative;
+      z-index: 1;
+    }
+
+    .topbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 20px;
+      padding: 24px 34px;
+      color: var(--white);
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      min-width: 0;
+    }
+
+    .brand img {
+      width: 66px;
+      height: 66px;
+      object-fit: contain;
+      border-radius: 12px;
+      background: rgba(255,255,255,0.08);
+      padding: 6px;
+    }
+
+    .brand-text {
+      line-height: 1.1;
+      min-width: 0;
+    }
+
+    .brand-text strong {
+      display: block;
+      font-size: 1.02rem;
+      letter-spacing: 0.04em;
+      white-space: nowrap;
+    }
+
+    .brand-text span {
+      display: block;
+      margin-top: 4px;
+      font-size: 0.84rem;
+      color: rgba(255,255,255,0.82);
+    }
+
+    .nav {
+      display: flex;
+      align-items: center;
+      gap: 26px;
+      font-size: 0.95rem;
+    }
+
+    .nav a {
+      opacity: 0.96;
+      transition: opacity 0.18s ease;
+    }
+
+    .nav a:hover {
+      opacity: 1;
+    }
+
+    .hero-body {
+      display: flex;
+      align-items: center;
+      min-height: 470px;
+      padding: 44px 34px 24px;
+    }
+
+    .hero-copy {
+      max-width: 660px;
+      color: var(--white);
+    }
+
+    .hero-copy h1 {
+      margin: 0 0 16px;
+      font-size: clamp(2.8rem, 5vw, 4.7rem);
+      line-height: 1.02;
+      letter-spacing: -0.04em;
+      font-weight: 800;
+    }
+
+    .hero-copy .lead {
+      margin: 0 0 8px;
+      font-size: clamp(1.12rem, 1.8vw, 1.5rem);
+      font-weight: 700;
+    }
+
+    .hero-copy .sub {
+      margin: 0 0 28px;
+      font-size: 1rem;
+      color: rgba(255,255,255,0.88);
+      font-weight: 600;
+    }
+
+    .cta-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-width: 174px;
+      height: 52px;
+      padding: 0 24px;
+      border-radius: 14px;
+      font-weight: 700;
+      border: 1px solid transparent;
+      transition: transform 0.18s ease, box-shadow 0.18s ease, opacity 0.18s ease;
+    }
+
+    .btn:hover {
+      transform: translateY(-1px);
+    }
+
+    .btn-primary {
+      background: linear-gradient(180deg, #ff9248 0%, var(--accent) 100%);
+      color: var(--white);
+      box-shadow: 0 14px 32px rgba(243, 115, 43, 0.34);
+    }
+
+    .btn-secondary {
+      background: rgba(22, 58, 114, 0.92);
+      border-color: rgba(255,255,255,0.18);
+      color: var(--white);
+    }
+
+    .info-card {
+      background: linear-gradient(180deg, rgba(255,255,255,0.96) 0%, rgba(246,249,253,0.98) 100%);
+      border-top: 1px solid rgba(255,255,255,0.35);
+      padding: 30px 34px 24px;
+    }
+
+    .info-card h2 {
+      margin: 0 0 18px;
+      text-align: center;
+      font-size: clamp(1.8rem, 3vw, 2.25rem);
+      line-height: 1.08;
+      letter-spacing: -0.03em;
+      color: #183a70;
+    }
+
+    .info-grid {
+      max-width: 1080px;
+      margin: 0 auto;
+      padding-bottom: 18px;
+      border-bottom: 1px solid var(--line);
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px 26px;
+      font-size: 0.97rem;
+      color: #334155;
+    }
+
+    .info-grid div {
+      line-height: 1.45;
+      word-break: break-word;
+    }
+
+    .info-grid strong {
+      color: #163a72;
+    }
+
+    .feature-row {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 14px;
+      margin-top: 18px;
+    }
+
+    .feature {
+      min-height: 68px;
+      border-radius: 16px;
+      background: rgba(255,255,255,0.85);
+      border: 1px solid #dde6f1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+      font-weight: 700;
+      color: #183a70;
+      text-align: center;
+      padding: 12px;
+    }
+
+    .feature .icon {
+      width: 38px;
+      height: 38px;
+      border-radius: 999px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      background: rgba(22,58,114,0.1);
+      font-size: 1.05rem;
+      flex: 0 0 auto;
+    }
+
+    .content {
+      width: min(calc(100% - 28px), 1180px);
+      margin: 28px auto 0;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+    }
+
+    .card {
+      background: rgba(255,255,255,0.98);
+      border: 1px solid #e5edf6;
+      border-radius: 22px;
+      padding: 24px;
+      box-shadow: 0 12px 28px rgba(17,35,61,0.06);
+    }
+
+    .card h3 {
+      margin: 0 0 10px;
+      font-size: 1.16rem;
+      color: #163869;
+    }
+
+    .card p,
+    .card li {
+      margin: 0;
+      color: #516173;
+      line-height: 1.65;
+      font-size: 0.98rem;
+    }
+
+    .card ul {
+      margin: 0;
+      padding-left: 18px;
+    }
+
+    .footer {
+      width: min(calc(100% - 28px), 1180px);
+      margin: 22px auto 40px;
+      text-align: center;
+      color: #6a7b8f;
+      font-size: 0.94rem;
+    }
+
+    @media (max-width: 980px) {
+      .hero {
+        min-height: 980px;
+      }
+
+      .topbar {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .nav {
+        flex-wrap: wrap;
+        gap: 14px 18px;
+      }
+
+      .info-grid,
+      .feature-row,
+      .content {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 720px) {
+      .wrap,
+      .content,
+      .footer {
+        width: min(calc(100% - 16px), var(--maxw));
+      }
+
+      .topbar,
+      .hero-body,
+      .info-card {
+        padding-left: 18px;
+        padding-right: 18px;
+      }
+
+      .brand {
+        align-items: flex-start;
+      }
+
+      .brand img {
+        width: 58px;
+        height: 58px;
+      }
+
+      .brand-text strong {
+        white-space: normal;
+      }
+
+      .hero-copy h1 {
+        font-size: 2.45rem;
+      }
+
+      .btn {
+        width: 100%;
+      }
+    }
+  </style>
+</head>
+<body>
+  <main class="wrap">
+    <section class="hero">
+      <header class="topbar">
+        <div class="brand">
+          <img src="YTA.jpeg" alt="YOUR TRAVEL AGENT S.R.L. logo" />
+          <div class="brand-text">
+            <strong>YOUR TRAVEL AGENT S.R.L.</strong>
+            <span>Flight Consolidator - Moldova since 2019</span>
+          </div>
+        </div>
+
+        <nav class="nav">
+          <a href="#about">About Us</a>
+          <a href="#services">Services</a>
+          <a href="#details">Company Details</a>
+          <a href="#contact">Contact</a>
+        </nav>
+      </header>
+
+      <div class="hero-body">
+        <div class="hero-copy">
+          <h1>Your Gateway to the World!</h1>
+          <p class="lead">Flight Tickets at the Best Prices</p>
+          <p class="sub">Serving Moldova since 2019</p>
+
+          <div class="cta-row">
+            <a class="btn btn-primary" href="#contact">Contact Us</a>
+            <a class="btn btn-secondary" href="mailto:ask@yourtravelagent.md">ask@yourtravelagent.md</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="info-card" id="details">
+        <h2>YOUR TRAVEL AGENT S.R.L.</h2>
+
+        <div class="info-grid">
+          <div><strong>Address:</strong> Republic of Moldova, mun. Chisinau, str-la N.Milescu-Spatarul 1/1, ap.32, MD2044</div>
+          <div><strong>IDNO:</strong> 1019600026117</div>
+          <div><strong>IBAN EUR:</strong> MD45PR002224192033001978</div>
+          <div><strong>IBAN USD:</strong> MD85PR002224192033001840</div>
+          <div><strong>SWIFT:</strong> PRCBMD22</div>
+          <div><strong>Bank:</strong> BC "ProCreditBank"</div>
+          <div><strong>Address of bank:</strong> Moldova, Chisinau, b-l Stefan cel Mare 65</div>
+          <div><strong>IATA:</strong> 69320576</div>
+          <div><strong>E-mail:</strong> <a href="mailto:ask@yourtravelagent.md">ask@yourtravelagent.md</a></div>
+        </div>
+
+        <div class="feature-row">
+          <div class="feature"><span class="icon">✈</span> Best Deals</div>
+          <div class="feature"><span class="icon">🌍</span> Global Partnerships</div>
+          <div class="feature"><span class="icon">☎</span> 24/7 Support</div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <section class="content">
+    <article class="card" id="about">
+      <h3>About Us</h3>
+      <p>YOUR TRAVEL AGENT S.R.L. is a flight consolidator based in the Republic of Moldova. Since 2019, the company has been focused on airfare distribution, agency support, and reliable international travel solutions.</p>
+    </article>
+
+    <article class="card" id="services">
+      <h3>Services</h3>
+      <ul>
+        <li>International air ticket sales</li>
+        <li>Agency cooperation and professional support</li>
+        <li>Consolidator fare access</li>
+        <li>Stable partnership workflow for travel business</li>
+      </ul>
+    </article>
+
+    <article class="card" id="contact">
+      <h3>Contact</h3>
+      <p>
+        E-mail: <a href="mailto:ask@yourtravelagent.md">ask@yourtravelagent.md</a><br />
+        Location: Chisinau, Republic of Moldova<br />
+        Logo file name for this page: <strong>YTA.jpeg</strong><br />
+        Optional background image file name: <strong>hero-bg.jpg</strong>
+      </p>
+    </article>
+  </section>
+
+  <div class="footer">© 2019 - 2026 YOUR TRAVEL AGENT S.R.L. All rights reserved.</div>
+</body>
+</html>
